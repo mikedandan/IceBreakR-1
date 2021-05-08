@@ -322,8 +322,9 @@ contract splitFee is Ownable {
         LPWallet = _LPWAllet;
     }    
     
-    function setLPAddress(address _LPAddress) public onlyOwner {
-        require(LPAddressSet = false);
+    function setLPAddress(address _LPAddress) public {
+        require(msg.sender == devAddress);
+        require(LPAddressSet == false);
         LPAddress = _LPAddress;
         LPAddressSet = true;
     }
@@ -355,4 +356,3 @@ contract splitFee is Ownable {
     
     
 }
-
