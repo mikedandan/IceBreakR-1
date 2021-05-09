@@ -12,6 +12,9 @@ abstract contract Context {
     }
 }
 
+interface IIcebreakr {
+    function splitTokens() external;
+}
 
 interface IERC20 {
 
@@ -308,7 +311,7 @@ contract splitFee is Ownable {
         devAddress = _devAddress;
         LPWallet = _LPWallet;
         
-        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D); //0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F //0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D
+        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff); //0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F
         uniswapV2Router = _uniswapV2Router;
     }
     
@@ -340,7 +343,8 @@ contract splitFee is Ownable {
         0,
         0,
         charityAddress,
-        block.timestamp);
+        block.timestamp
+        );
         
         uniswapV2Router.removeLiquidityETHSupportingFeeOnTransferTokens(
         LPAddress,
@@ -348,7 +352,8 @@ contract splitFee is Ownable {
         0,
         0,
         devAddress,
-        block.timestamp);
+        block.timestamp
+        );
     
         _IERC20.transfer(LPWallet, _IERC20.balanceOf(address(this)));
     }
@@ -356,3 +361,35 @@ contract splitFee is Ownable {
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
